@@ -4,10 +4,10 @@ const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
 // Connection URL
-const url = process.env.MONGOURL ? `${process.env.MONGOURL}/db_test` : "mongodb://localhost:27017/db_test";
+const url = process.env.MONGOURL ? process.env.MONGOURL : "mongodb://localhost:27017/db_test";
 
 // Connect to MongoDB
-mongoose.connect("mongodb://13.232.52.85:27017/db_test", {
+mongoose.connect(url, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false,
