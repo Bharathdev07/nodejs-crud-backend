@@ -1,0 +1,25 @@
+version: '3'
+services:
+  frontend:
+    image: bharath0812/crud-front:1.0
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+
+  backend:
+    image: bharath0812/crud-back:1.0
+    ports:
+      - "4000:4000"
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:
